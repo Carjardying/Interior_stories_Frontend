@@ -9,13 +9,14 @@
 
       <div class="flex items-center justify-between">
 
-        <img src="/src/assets/images/logos/logo_light.png" alt="logo" class="logo max-h-[60px] m-[1rem]"></img> 
-        <a href="http://localhost:5500/catalogue">BROWSE FURNITURES</a>
+        <img src="/src/assets/images/logos/logo_light.png" alt="logo" class="logo max-h-[60px] m-[1rem]"></img>
+        <RouterLink to="/catalogue" class="text-medium-beige-300">BROWSE FURNITURES</RouterLink>  
+
   
         <div class="flex justify-around m-[1rem]">
           <!-- -->
           <AccountButton></AccountButton>
-          <a href="http://localhost:5500/cart"> <img src="/src/assets/images/icons/cart_light_icon.png" alt="cart link" class="cart max-h-[30px]"></a>
+          <RouterLink to="/cart" class="text-medium-beige-300"><img src="/src/assets/images/icons/cart_light_icon.png" alt="cart link" class="cart max-h-[30px]"></RouterLink>
 
         </div>
 
