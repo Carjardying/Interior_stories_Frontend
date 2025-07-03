@@ -1,7 +1,7 @@
 <template>
   <!-- Account Button -->
   <button @click="open = true">
-    <img src="/src/assets/images/icons/account_dark_account.png" alt="Account icon dark version" class="w-8 h-8" />
+    <img src="/src/assets/images/icons/account_light_account.png" alt="Account icon light version" class="w-8 h-8" />
   </button>
 
   <!-- Backdrop + Modal -->
@@ -10,13 +10,13 @@
     <div ref="modal" class="modal bg-light-beige-100 rounded-lg shadow-lg flex flex-col items-center space-y-4">
       <div v-if="auth.isAuthenticated">
         <RouterLink to="/home" @click="logout"
-          class="bg-dark-brown-800 text-medium-beige-300 px-4 py-2 rounded hover:bg-dark-aubergine-800 transition-colors duration-200">
+          class="bg-light-brown-600 text-medium-beige-300 px-4 py-2 rounded hover:bg-medium-brown-700 transition-colors duration-200">
           LogOut
         </RouterLink>
       </div>
       <div v-else>
         <RouterLink to="/login"
-          class="bg-dark-brown-800 text-medium-beige-300 px-4 py-2 rounded hover:bg-dark-aubergine-800 transition-colors duration-200">
+          class="bg-light-brown-600 text-medium-beige-300 px-4 py-2 rounded hover:bg-medium-brown-700 transition-colors duration-200">
           LogIn
         </RouterLink>
       </div>

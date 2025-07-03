@@ -12,6 +12,19 @@ export const useAuthStore = defineStore('auth', {
     actions: {
         setToken(token) {
             this.token = token
+        },
+        logout() {
+            fetch("http://localhost:8000/api/logout", {
+                method: 'Post',
+                headers: { Authorization: `Bearer ${this.token}` },
+            })
+                .then(response => response.json())
+                .then(data =>
+                    this.setToken(null)
+                )
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 });

@@ -8,8 +8,8 @@
         <!-- Back arrow -->
         <RouterLink to="/home"><img src="../assets/images/icons/back_arrow_light_icon.png"
             alt="Light beige back arrow account redirecting to homepage"
-            class="w-8 h-8 cursor-pointer hover:opacity-80 transition-opacity" /></RouterLink>
-
+            class="w-8 h-8 cursor-pointer hover:opacity-80 transition-opacity" />
+        </RouterLink>
 
         <!-- Light logo component -->
         <img src="../assets/images/logos/logo_light.png" alt="Brand logo light version"
@@ -37,7 +37,7 @@
 
     <!-- Right Side -->
     <div class="flex-1 bg-medium-beige-300 flex flex-col items-center justify-center p-8">
-      <div class="w-full max-w-md space-y-8">
+      <div class="w-full max-w-md space-y-8 flex flex-col gap-8">
 
         <!-- Dark title -->
         <h1 class="text-6xl font-heading text-dark-aubergine-800 text-jusitfy mb-12">
@@ -45,7 +45,7 @@
         </h1>
 
         <!-- Form -->
-        <form id="login-form" class="space-y-8">
+        <form id="login-form" class="flex flex-col space-y-8 gap-4">
           <!-- Email -->
           <div class="space-y-3">
             <label for="email" class="block text-xl font-body text-dark-aubergine-800">
@@ -63,21 +63,22 @@
             <input id="password" type="password" required
               class="w-full px-4 py-4 bg-light-beige-100 border-0 text-dark-aubergine-800 text-lg focus:outline-none focus:ring-2 focus:ring-dark-aubergine-800" />
           </div>
-          
+
           <!-- Error message -->
-          <p id="login-error-message" class="text-base font-body text-red-alert-600 text-center" style="display: none;">Invalid email or password, please try again !</p>
-          
+          <p id="login-error-message" class="text-base font-body text-red-alert-600 text-center" style="display: none;">
+            Invalid email or password, please try again !</p>
+
           <!-- Sign in button -->
           <button id="login-button" type="submit"
             class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-8 py-4 text-lg font-body text-light-beige-100 transition-colors duration-200 mt-8">
             Sign in
           </button>
         </form>
-        
+
         <!-- Sign Up Link -->
-        <div class="text-center mt-8">
+        <div class="text-center mt-16">
           <p class="text-base font-body text-dark-aubergine-800 underline underline-offset-3">
-            <RouterLink to="/home">Don't have an account yet? Sign Up! </RouterLink>
+            <RouterLink to="/register">Don't have an account yet? Sign Up! </RouterLink>
           </p>
         </div>
       </div>
@@ -95,13 +96,13 @@ const auth = useAuthStore();
 onMounted(() => {
   const loginForm = document.querySelector('#login-form');
   const loginErrorMessage = document.querySelector('#login-error-message');
-  
+
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-  
+
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-  
+
     fetch("http://localhost:8000/api/login", {
       method: 'Post',
       headers: { 'Content-Type': 'application/json' },
@@ -120,6 +121,5 @@ onMounted(() => {
         loginErrorMessage.style = "display: block;"
       })
   });
-})
-
+});
 </script>
