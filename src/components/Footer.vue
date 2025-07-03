@@ -1,14 +1,17 @@
 <template>
-    <footer class="bg-khaki-900 text-medium-beige-300 flex items-center justify-between">
-      <img src="/src/assets/images/logos/logo_light.png" alt="logo" class="logo max-h-[60px] m-[1rem]"></img> 
-      <p class="font-body m-[1rem]">©Copyright 2025 Interior Stories</p>
-    </footer> <!-- component Footer.vue -->
+    <footer class="bg-khaki-900 py-8 pl-16 pr-8">
+        <div class="flex items-center">
+            <!-- Logo -->
+            <img src="../assets/images/logos/logo_light.png" alt="Brand logo light version" class="h-20">
+
+            <!-- Copyright -->
+            <p class="text-light-beige-100 text-lg font-heading !ml-6">
+                © Copyright 2025 Interior Stories
+            </p>
+        </div>
+    </footer>
 </template>
 
- <script setup>
-    import { ref } from 'vue'
-
-  </script>
-  <!-- TO DO :
-   * Change footer's color and logo's color depending on the pages you are on 
-   -->
+<script setup>
+// Footer component - no props or logic needed for now
+</script>
