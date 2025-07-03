@@ -8,8 +8,8 @@
         <!-- Back arrow -->
         <RouterLink to="/home"><img src="../assets/images/icons/back_arrow_light_icon.png"
             alt="Light beige back arrow account redirecting to homepage"
-            class="w-8 h-8 cursor-pointer hover:opacity-80 transition-opacity" /></RouterLink>
-
+            class="w-8 h-8 cursor-pointer hover:opacity-80 transition-opacity" />
+        </RouterLink>
 
         <!-- Light logo component -->
         <img src="../assets/images/logos/logo_light.png" alt="Brand logo light version"
@@ -63,17 +63,18 @@
             <input id="password" type="password" required
               class="w-full px-4 py-4 bg-light-beige-100 border-0 text-dark-aubergine-800 text-lg focus:outline-none focus:ring-2 focus:ring-dark-aubergine-800" />
           </div>
-          
+
           <!-- Error message -->
-          <p id="login-error-message" class="text-base font-body text-red-alert-600 text-center" style="display: none;">Invalid email or password, please try again !</p>
-          
+          <p id="login-error-message" class="text-base font-body text-red-alert-600 text-center" style="display: none;">
+            Invalid email or password, please try again !</p>
+
           <!-- Sign in button -->
           <button id="login-button" type="submit"
             class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-8 py-4 text-lg font-body text-light-beige-100 transition-colors duration-200 mt-8">
             Sign in
           </button>
         </form>
-        
+
         <!-- Sign Up Link -->
         <div class="text-center mt-16">
           <p class="text-base font-body text-dark-aubergine-800 underline underline-offset-3">
@@ -95,13 +96,13 @@ const auth = useAuthStore();
 onMounted(() => {
   const loginForm = document.querySelector('#login-form');
   const loginErrorMessage = document.querySelector('#login-error-message');
-  
+
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-  
+
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-  
+
     fetch("http://localhost:8000/api/login", {
       method: 'Post',
       headers: { 'Content-Type': 'application/json' },
