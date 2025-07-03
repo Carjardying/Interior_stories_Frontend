@@ -1,7 +1,7 @@
 <template>
   <button
     @click="open = true"
-    class="text-medium-beige-300 border border-medium-beige-300 p-[1rem]">
+    class="text-medium-beige-300 p-[1rem]">
     <img
       src="/src/assets/images/icons/account_light_account.png"
       alt="account link"

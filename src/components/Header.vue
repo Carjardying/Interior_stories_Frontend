@@ -10,7 +10,7 @@
         </RouterLink>  
 
   
-        <div class="flex justify-between border border-medium-beige-300"> <!-- I see no diff between justify-around/between changing rem don't do anything -->
+        <div class="flex justify-between "> <!-- I see no diff between justify-around/between changing rem don't do anything -->
           <!-- Account button is not completely recognized by home.vue as a button so the cursor doesn't change-->
           <AccountButton></AccountButton>
           <CartButton></CartButton>
@@ -30,4 +30,5 @@ import CartButton from './CartButton.vue';
 
 <!-- TO DO :
  * Change header's and logo's colors depending on the pages you are on 
- * Hover on AccountButton doesn't work -->
+ * Hover on AccountButton doesn't work
+ * -->

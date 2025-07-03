@@ -1,6 +1,6 @@
 <template> 
     <RouterLink to="/login"
-    class="text-medium-beige-300 border border-medium-beige-300 p-[1rem]"
+    class="text-medium-beige-300 p-[1rem]"
     ><img
       src="/src/assets/images/icons/cart_light_icon.png"
       alt="cart link"
