@@ -1,3 +1,4 @@
+@import './assets/styles/reset.css'; 
 @import "tailwindcss";
 
 /* Import Font Family */
