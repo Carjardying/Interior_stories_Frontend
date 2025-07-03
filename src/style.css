@@ -1,3 +1,4 @@
+@import './assets/styles/reset.css'; 
 @import "tailwindcss";
 
 /* Import Font Family */
@@ -19,6 +20,7 @@
     --color-salmon-300: #ffba9a;
     --color-khaki-900: #55450e;
     --color-off-white-50: #fffcf8;
+    --color-red-alert-600: #c73b23;
 
     /* Font Families */
     --font-heading: "EB Garamond Regular", serif;
