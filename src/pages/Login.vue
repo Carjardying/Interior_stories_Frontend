@@ -37,7 +37,7 @@
 
     <!-- Right Side -->
     <div class="flex-1 bg-medium-beige-300 flex flex-col items-center justify-center p-8">
-      <div class="w-full max-w-md space-y-8">
+      <div class="w-full max-w-md space-y-8 flex flex-col gap-8">
 
         <!-- Dark title -->
         <h1 class="text-6xl font-heading text-dark-aubergine-800 text-jusitfy mb-12">
@@ -45,7 +45,7 @@
         </h1>
 
         <!-- Form -->
-        <form id="login-form" class="space-y-8">
+        <form id="login-form" class="flex flex-col space-y-8 gap-4">
           <!-- Email -->
           <div class="space-y-3">
             <label for="email" class="block text-xl font-body text-dark-aubergine-800">
@@ -75,9 +75,9 @@
         </form>
         
         <!-- Sign Up Link -->
-        <div class="text-center mt-8">
+        <div class="text-center mt-16">
           <p class="text-base font-body text-dark-aubergine-800 underline underline-offset-3">
-            <RouterLink to="/home">Don't have an account yet? Sign Up! </RouterLink>
+            <RouterLink to="/register">Don't have an account yet? Sign Up! </RouterLink>
           </p>
         </div>
       </div>
@@ -120,6 +120,5 @@ onMounted(() => {
         loginErrorMessage.style = "display: block;"
       })
   });
-})
-
+});
 </script>
