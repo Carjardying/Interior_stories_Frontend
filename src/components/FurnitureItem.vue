@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import AddToCartButton from "src/components/AddToCartButton.vue";
+import AddToCartButton from './AddToCartButton.vue';
 
 defineProps({
   name: String,

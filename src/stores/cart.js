@@ -5,6 +5,10 @@ export const useCartStore = defineStore('cart', {
     items: []  // on stocke les IDs ici
   }),
 
+  getters: {
+    cartCount: (state) => state.items.length,
+  },
+
   actions: {
     addToCart(furnitureId) {
       if (!this.items.includes(furnitureId)) {
@@ -14,9 +18,5 @@ export const useCartStore = defineStore('cart', {
         console.log(`Le meuble ${furnitureId} est déjà dans le panier`)
       }
     }
-  },
-
-  getters: {
-    cartCount: (state) => state.items.length,
   }
-})
+});
