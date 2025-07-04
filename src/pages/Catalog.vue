@@ -2,20 +2,21 @@
   <div class="bg-light-beige-100 min-h-100">
     <Header></Header>
     <div>
-      <h1 class="font-heading text-6xl !m-[2rem] text-dark-aubergine-800">
+      <h1 class="font-heading text-6xl  m-[2rem] text-dark-aubergine-800">
         Furnitures
       </h1>
     </div>
-    <div class="!m-4">
+    <div class=" m-4">
       Furniture's Carts here. Will be replaced by cart.vue
 
-      <div class="min-h-100 grid grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
          
-        <div class="col-span-1 outline-solid !m-8">
-          <div>
+        <div class="col-span-1  m-8">
+          <div class="h-150 overflow-hidden">
             <img
               src="/src/assets/images/furnitures/soriana_sofa.PNG"
               alt="sofa soriana"
+              class="w-full h-full object-cover"
             />
           </div>
           <div class="font-body text-dark-aubergine-800">Sofa Soriana</div>
@@ -25,12 +26,12 @@
           </div>
         </div>
 
-        <div class="col-span-1 outline-solid !m-8">
-          <div>
+        <div class="col-span-1  m-8">
+          <div class="h-150 overflow-hidden">
             <img
               src="/src/assets/images/furnitures/cassina_lc3_sofa.PNG"
               alt="sofa Cassina"
-              class="h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </div>
           <div class="font-body text-dark-aubergine-800">Sofa Cassina</div>
@@ -40,11 +41,13 @@
           </div>
         </div>
 
-        <div class="col-span-1 outline-solid !m-8">
-          <div>
+        <div class="col-span-1  m-8">
+          <div class="h-150 overflow-hidden">
             <img
               src="/src/assets/images/furnitures/togo_sofa.PNG"
               alt="sofa Togo"
+              class="w-full h-full object-cover"
+  
             />
           </div>
           <div class="font-body text-dark-aubergine-800">Sofa Togo</div>
@@ -54,11 +57,13 @@
           </div>
         </div>
 
-        <div class="col-span-1 outline-solid !m-8">
-          <div>
+        <div class="col-span-1  m-8">
+          <div class="h-150 overflow-hidden">
             <img
               src="/src/assets/images/furnitures/eames_lounge_chair.PNG"
               alt="Eames Lounge Chair and Ottoman"
+              class="w-full h-full object-cover"
+
             />
           </div>
           <div class="font-body text-dark-aubergine-800">Eames Lounge Chair and Ottoman</div>
