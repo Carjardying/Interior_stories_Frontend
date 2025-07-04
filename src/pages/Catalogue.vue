@@ -26,21 +26,8 @@
           </div>
         </div>
 
-        <div class="col-span-1  m-8">
-          <div class="h-150 overflow-hidden">
-            <img
-              src="/src/assets/images/furnitures/cassina_lc3_sofa.PNG"
-              alt="sofa Cassina"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="font-body text-dark-aubergine-800">Sofa Cassina</div>
-          <div class="font-body text-dark-aubergine-800">EUR 350,00</div>
-          <div class="font-body bg-dark-aubergine-800 text-medium-beige-300">
-            <RouterLink to="/cart">+ Add to cart</RouterLink>
-          </div>
-        </div>
-
+        <FurnitureItem></FurnitureItem>
+        
         <div class="col-span-1  m-8">
           <div class="h-150 overflow-hidden">
             <img
@@ -82,4 +69,5 @@
 <script setup>
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
+import FurnitureItem from "../components/FurnitureItem.vue";
 </script>

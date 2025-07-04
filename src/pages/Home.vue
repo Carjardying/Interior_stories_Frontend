@@ -7,7 +7,7 @@
         <!-- I see no diff between justify-around and justify-between as it should show a diff-->
         <img src="/src/assets/images/logos/logo_light.png" alt="Brand logo light version"
           class="logo max-h-[60px] m-[1rem]"></img>
-        <RouterLink to="/catalogue" class="text-medium-beige-300">
+        <RouterLink to="/Catalogue" class="text-medium-beige-300">
           Go to our Catalogue
         </RouterLink>
         <div class="flex justify-between ">
