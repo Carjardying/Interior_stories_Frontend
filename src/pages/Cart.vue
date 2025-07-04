@@ -51,7 +51,7 @@
 
                             <!-- Checkout Button -->
                             <button
-                                class="w-full bg-dark-aubergine-800 px-20 py-4 text-lg font-body text-medium-beige-300 mb-6">Checkout</button>
+                                class="w-full bg-dark-aubergine-800 px-20 py-4 text-lg font-body text-medium-beige-300 mb-6 cursor-pointer">Checkout</button>
 
                             <!-- Continue Shopping Link -->
                             <div class="text-justify">
