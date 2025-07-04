@@ -1,7 +1,6 @@
 <template>
   <div class="bg-dark-aubergine-800 h-dvh">
 
-    <!-- Refaire un component header qui varie light/dark, si possible -->
     <header class="bg-dark-aubergine-800 text-medium-beige-300">
 
       <div class="flex items-center justify-between">

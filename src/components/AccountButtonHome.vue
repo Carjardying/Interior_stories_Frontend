@@ -1,6 +1,6 @@
 <template>
   <!-- Account Button -->
-  <button @click="open = true">
+  <button @click="open = true" class="cursor-pointer">
     <img src="/src/assets/images/icons/account_light_account.png" alt="Account icon light version" class="w-8 h-8" />
   </button>
 

@@ -70,7 +70,7 @@
 
           <!-- Sign in button -->
           <button id="login-button" type="submit"
-            class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-8 py-4 text-lg font-body text-light-beige-100 transition-colors duration-200 mt-8">
+            class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-8 py-4 text-lg font-body text-light-beige-100 transition-colors duration-200 mt-8 cursor-pointer">
             Sign in
           </button>
         </form>
