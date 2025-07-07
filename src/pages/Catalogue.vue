@@ -7,7 +7,7 @@
     <div class=" m-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FurnitureItem v-for="furniture in furnitureList" :id="furniture.id" :name="furniture.name"
-          :price="furniture.price" :image="furniture.image" />
+          :price="furniture.price" :image="furniture.image" @item-added="reloadFurnitures" />
       </div>
     </div>
     <Footer></Footer>
@@ -22,16 +22,20 @@ import { ref, onMounted } from 'vue';
 
 const furnitureList = ref([]);
 
-onMounted(() => {
+function reloadFurnitures() {
   fetch("http://localhost:8000/api/furnitures", {
-    method: 'Get',
+    method: 'GET',
   })
     .then(response => response.json())
     .then(data => {
       furnitureList.value = data;
     })
     .catch(error => {
-      console.log(error)
-    })
+      console.log(error);
+    });
+}
+
+onMounted(() => {
+  reloadFurnitures();
 })
 </script>

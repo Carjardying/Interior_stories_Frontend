@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-    import { onMounted } from 'vue';
     import { useCartStore } from '../stores/cart';
     import { useAuthStore } from '../stores/auth';
+    import { defineEmits, defineProps } from 'vue';
     
     const props = defineProps({
         furnitureId: {
@@ -16,8 +16,10 @@
         },
     })
 
+    const emit = defineEmits(['item-added'])
     const cartStore = useCartStore()
     const authStore = useAuthStore();
+
     function addToCart() {
         cartStore.addToCart(props.furnitureId);
         
@@ -29,8 +31,7 @@
         .then(response => response.json())
         .then(data => {
             if (!data.error) {
-                onMounted();
-                router.push('/Catalogue');
+                emit('item-added'); //use for order to mother class (here: message to tell item added and reload page catalog in FurnitureItem > Catalog)
             } else {
                 throw data.error;
             }
@@ -39,6 +40,4 @@
             console.log(error);
         })
     }
-
-    
 </script>
