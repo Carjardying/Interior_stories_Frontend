@@ -6,7 +6,7 @@
     </div>
     <div class=" m-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FurnitureItem v-for="furniture in furnitureList" :key="furniture.id" :name="furniture.name"
+        <FurnitureItem v-for="furniture in furnitureList" :id="furniture.id" :name="furniture.name"
           :price="furniture.price" :image="furniture.image" />
       </div>
     </div>

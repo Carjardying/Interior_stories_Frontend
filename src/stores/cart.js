@@ -13,9 +13,9 @@ export const useCartStore = defineStore('cart', {
     addToCart(furnitureId) {
       if (!this.items.includes(furnitureId)) {
         this.items.push(furnitureId)
-        console.log(`Le meuble ${furnitureId} a été ajouté au panier`)
+        // alert(`The furniture ${furnitureId} has been added to the cart`)
       } else {
-        console.log(`Le meuble ${furnitureId} est déjà dans le panier`)
+        // alert(`The furniture ${furnitureId} is already in the cart`)
       }
     }
   }

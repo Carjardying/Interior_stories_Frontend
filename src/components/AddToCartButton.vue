@@ -1,30 +1,44 @@
 <template>
-    <!-- <button class="bg-dark-brown-800 text-medium-beige-300 w-full"
-    @click="addToCart">
-         + Add to cart 
-    </button> -->
-    <button type="submit" class=" w-full font-body bg-dark-aubergine-800 text-medium-beige-300 p-2" @click="addToCart">
+    <button type="submit" class=" w-full font-body border-1 border-dark-aubergine-800 bg-dark-aubergine-800 text-medium-beige-300 p-2 cursor-pointer hover:bg-light-beige-100 hover:text-dark-aubergine-800" @click="addToCart">
       + Add to Cart
     </button>
 </template>
 
 <script setup>
+    import { onMounted } from 'vue';
     import { useCartStore } from '../stores/cart';
-
-    const cartStore = useCartStore()
-    function addToCart() {
-        // console.log("Click", props.id);
-        cartStore.addToCart(props.id);
-        // il  doit envoyer l'id passé en propriété dans le store
-        // il n'arrive pas à récupérer l'id qui n'est pas ici, 
-        // Par contre l'id de furniture est récupéré dans la Catalogue.vue (ligne 9), il faudrait voir comment on peut reprendre cet id dans ce fichier pour le transférer à ce fichier-ci 
-    }
-
+    import { useAuthStore } from '../stores/auth';
+    
     const props = defineProps({
-        id: {
-            type: String,
+        furnitureId: {
+            type: Number,
             required: true
         },
-    }) // définit le type id et éviter d'envoyer des éléments qui ne correspondent pas
+    })
 
+    const cartStore = useCartStore()
+    const authStore = useAuthStore();
+    function addToCart() {
+        cartStore.addToCart(props.furnitureId);
+        
+        fetch("http://localhost:8000/api/order", {
+            method: 'Post',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authStore.token}`},
+            body: JSON.stringify({ furniture_id: props.furnitureId }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.error) {
+                onMounted();
+                router.push('/Catalogue');
+            } else {
+                throw data.error;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    
 </script>
