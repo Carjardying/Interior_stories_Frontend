@@ -6,20 +6,18 @@
     </div>
     <h2 class="font-body text-dark-aubergine-800 p-1">{{ name }}</h2>
     <p class="font-body text-dark-aubergine-800 p-1">EUR {{ price }}</p>
-    <button type="submit" class=" w-full font-body border-1 border-dark-aubergine-800 bg-dark-aubergine-800 text-medium-beige-300 p-2 cursor-pointer hover:bg-light-beige-100 hover:text-dark-aubergine-800">
-      + Add to Cart
-    </button>
+    
+    <AddToCartButton :furnitureId="id" @item-added="$emit('item-added')"/>
   </form>
 </template>
 
 <script setup>
+import AddToCartButton from './AddToCartButton.vue';
+
 defineProps({
+  id: [String, Number],
   name: String,
   price: String,
   image: String,
 });
-
-function addToCart() {
-  // faire l'ajout du meuble dans une commande
-}
 </script>
