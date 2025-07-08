@@ -54,9 +54,27 @@
                                 </div>
                             </div>
                             <button
-                                class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-6 sm:px-12 lg:px-20 py-3 sm:py-4 text-base sm:text-lg md:text-xl font-body text-medium-beige-300 mb-4 sm:mb-6 cursor-pointer transition-colors duration-200" @click="checkout">
+                                class="w-full bg-dark-aubergine-800 hover:bg-dark-brown-800 px-6 sm:px-12 lg:px-20 py-3 sm:py-4 text-base sm:text-lg md:text-xl font-body text-medium-beige-300 mb-4 sm:mb-6 cursor-pointer transition-colors duration-200"
+                                @click="checkout">
                                 Checkout
                             </button>
+                            <!-- Backdrop + Modal -->
+                            <div v-if="open"@click.self="closeModal"
+                                class="fixed inset-0 w-screen h-screen bg-medium-beige-300/50 backdrop flex items-center justify-center z-50 min-h-screen min-w-full">
+                                <!-- Modal box -->
+                                <div ref="modal"
+                                    class="modal w-4xl size-90 p-20 place-content-evenly bg-light-beige-100 shadow-lg flex flex-col items-center space-y-4"
+                                    role="dialog" aria-modal="true" aria-labelledby="modal-title"
+                                    aria-describedby="modal-description"> 
+                                    <span class="text-3xl">Your order has been placed !</span>
+                                    
+                                    <RouterLink to="/home" @click="closeModal"
+                                            class="bg-dark-brown-800 text-medium-beige-300 px-4 py-2 font-body hover:bg-dark-aubergine-800 transition-colors duration-200">
+                                            Back to homepage
+                                    </RouterLink>
+                                </div>
+                            </div>
+
                             <div class="text-left sm:text-justify">
                                 <router-link to="/catalogue"
                                     class="text-sm sm:text-base md:text-lg font-body text-dark-aubergine-800 underline underline-offset-2 sm:underline-offset-3 inline-flex items-center gap-2 hover:text-dark-brown-800 transition-colors duration-200">
@@ -76,44 +94,61 @@
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue'
-    import CartItem from '../components/CartItem.vue'
-    import Header from '../components/Header.vue'
-    import Footer from '../components/Footer.vue'
-    import { useAuthStore } from '../stores/auth';
+import { ref, onMounted } from 'vue';
+import CartItem from '../components/CartItem.vue';
+import Home from '../pages/Home.vue';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import { useAuthStore } from '../stores/auth';
 
-    const orderList = ref([]);
-    const authStore = useAuthStore();
+const orderList = ref([]);
+const authStore = useAuthStore();
+let open = ref(false);
 
-    let amountFurnitures = ref(0);
-    let amountTotal = ref(0);
-    let deliveryFees = 80;
+let amountFurnitures = ref(0);
+let amountTotal = ref(0);
+let deliveryFees = 80;
 
-    function loadOrders(){
-        fetch("http://localhost:8000/api/orders", {
-            method: 'GET',
-            headers: { Authorization: `Bearer ${authStore.token}` }
-        })
-        .then(response => response.json())
-        .then(data => {
-            orderList.value = data;
+function loadOrders(){
+  fetch("http://localhost:8000/api/orders", {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${authStore.token}` }
+    })
+  .then(response => response.json())
+  .then(data => {
+    orderList.value = data;
 
-            amountFurnitures.value = 0;
-            amountTotal = 0;
+    amountFurnitures.value = 0;
+    amountTotal = 0;
 
-            orderList.value.forEach((elem) => {
-                amountFurnitures.value += Number(elem.price)
-            })
-
-            amountTotal = amountFurnitures.value + deliveryFees;
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }
-
-    onMounted(() => {
-      loadOrders();
+    orderList.value.forEach((elem) => {
+    amountFurnitures.value += Number(elem.price)
     })
 
+    amountTotal = amountFurnitures.value + deliveryFees;
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
+onMounted(() => {
+    loadOrders();
+})
+
+function checkout() {
+    fetch("http://localhost:8000/api/orders", {
+        method: 'PUT',
+        headers: { Authorization: `Bearer ${authStore.token}` }
+    })
+        .then(() => {
+            loadOrders()
+            open.value = true
+        })
+}
+
+function closeModal() {
+    open.value = false
+    router.push('/home');
+}
 </script>
