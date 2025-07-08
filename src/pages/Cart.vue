@@ -32,7 +32,7 @@
                                         Order Value
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                     {{ amountFurnitures }}
+                                        EUR {{ amountFurnitures.toFixed(2) }}
                                     </span>
                                 </div>
                                 <div class="flex justify-between items-center mb-3 sm:mb-4">
@@ -49,7 +49,7 @@
                                         TOTAL
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        {{ amountTotal }}
+                                        EUR {{ amountTotal.toFixed(2) }}
                                     </span>
                                 </div>
                             </div>
@@ -85,8 +85,8 @@
     const orderList = ref([]);
     const authStore = useAuthStore();
 
-    let amountFurnitures;
-    let amountTotal;
+    let amountFurnitures = ref(0);
+    let amountTotal = ref(0);
     let deliveryFees = 80;
 
     function loadOrders(){
@@ -96,14 +96,16 @@
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             orderList.value = data;
 
-            amountFurnitures = 0;
+            amountFurnitures.value = 0;
             amountTotal = 0;
 
-            amountFurnitures = orderList.map((order) => order.price).reduce((accumulator, currentValue) => accumulator + currentValue, amountFurnitures)
+            orderList.value.forEach((elem) => {
+                amountFurnitures.value += Number(elem.price)
+            })
 
+            amountTotal = amountFurnitures.value + deliveryFees;
         })
         .catch(error => {
             console.log(error);
