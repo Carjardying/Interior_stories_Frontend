@@ -4,16 +4,6 @@
         @click="addToCart">
         + Add to Cart
     </button>
-    <!-- <div v-if="auth.isAuthenticated">
-        <button type="submit"
-            class=" w-full font-body border-1 border-dark-aubergine-800 bg-dark-aubergine-800 text-medium-beige-300 p-2 cursor-pointer hover:bg-light-beige-100 hover:text-dark-aubergine-800"
-            @click="addToCart">
-            + Add to Cart
-        </button>
-    </div>
-    <div v-else>
-        <button>Please </button>
-    </div> -->
 </template>
 
 <script setup>
