@@ -33,7 +33,7 @@
     const authStore = useAuthStore();
 
     function removeFromCart() {
-        cartStore.removeFromCart(furnitureId);
+        
         
         fetch(`http://localhost:8000/api/orders/${furnitureId}`, {
             method: 'Delete',
@@ -47,6 +47,7 @@
                 throw data.error;
             }
         })
+        .then(cartStore.removeFromCart(furnitureId))
         .catch(error => {
             console.log(error);
         })

@@ -93,14 +93,24 @@
         .then(data => {
             console.log(data)
             orderList.value = data;
+            let amount = 0;
+            
+    
         })
         .catch(error => {
             console.log(error);
         });
+
     }
 
     onMounted(() => {
       loadOrders();
     })
+
+
+    function cartAmount(data) {
+    
+
+    }
 
 </script>
