@@ -2,9 +2,9 @@
   <div class="bg-light-beige-100 min-h-100">
     <Header></Header>
     <div>
-      <h1 class="font-heading text-6xl  m-[2rem] text-dark-aubergine-800">Furnitures</h1>
+      <h1 class="font-heading text-6xl ml-12 mt-8 mb-8 text-dark-aubergine-800">Furnitures</h1>
     </div>
-    <div class=" m-4">
+    <div class="m-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FurnitureItem 
           v-for="furniture in furnitureList" 
