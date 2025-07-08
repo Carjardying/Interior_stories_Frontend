@@ -23,7 +23,7 @@
     function addToCart() {
         cartStore.addToCart(props.furnitureId);
         
-        fetch("http://localhost:8000/api/order", {
+        fetch("http://localhost:8000/api/orders", {
             method: 'Post',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authStore.token}`},
             body: JSON.stringify({ furniture_id: props.furnitureId }),

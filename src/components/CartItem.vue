@@ -1,25 +1,54 @@
 <template>
     <div class="flex items-start gap-6">
-        <img :src="product.image" :alt="product.name" class="w-32 h-32 object-cover" />
+        <img :src="image" :alt="name" class="w-32 h-32 object-cover" />
         <div class="flex-1">
             <h3 class="text-lg font-body text-dark-aubergine-800 mb-2">
-                {{ product.name }}
+                {{ name }}
             </h3>
             <p class="text-sm font-body text-dark-brown-800">
-                EUR {{ product.price }}
+                EUR {{ price }}
             </p>
         </div>
-        <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body text-medium-beige-300">
+        <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body text-medium-beige-300" @click="removeFromCart">
             Remove
         </button>
     </div>
 </template>
 
 <script setup>
-defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
-})
+
+    import { useCartStore } from '../stores/cart';
+    import { useAuthStore } from '../stores/auth';
+    import { defineEmits, defineProps } from 'vue';
+
+    defineProps({
+        furnitureId: [String, Number],
+        name: String,
+        price: Number,
+        image: String,
+    })
+
+    const emit = defineEmits(['item-added'])
+    const cartStore = useCartStore()
+    const authStore = useAuthStore();
+
+    function removeFromCart() {
+        cartStore.removeFromCart(furnitureId);
+        
+        fetch(`http://localhost:8000/api/orders/${furnitureId}`, {
+            method: 'Delete',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authStore.token}`}
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.error) {
+                emit('item-removed');
+            } else {
+                throw data.error;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 </script>
