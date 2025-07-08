@@ -1,12 +1,12 @@
 <template>
     <div class="flex items-start gap-6">
-        <img :src="image" :alt="name" class="w-32 h-32 object-cover" />
+        <img :src="props.image" :alt="name" class="w-32 h-32 object-cover" />
         <div class="flex-1">
             <h3 class="text-lg font-body text-dark-aubergine-800 mb-2">
-                {{ name }}
+                {{ props.name }}
             </h3>
             <p class="text-sm font-body text-dark-brown-800">
-                EUR {{ price }}
+                EUR {{ props.price }}
             </p>
         </div>
         <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body text-medium-beige-300" @click="removeFromCart">
@@ -21,21 +21,20 @@
     import { useAuthStore } from '../stores/auth';
     import { defineEmits, defineProps } from 'vue';
 
-    defineProps({
+    const props = defineProps({
         furnitureId: [String, Number],
         name: String,
-        price: Number,
+        price: String,
         image: String,
     })
 
-    const emit = defineEmits(['item-added'])
+    const emit = defineEmits(['item-removed'])
     const cartStore = useCartStore()
     const authStore = useAuthStore();
 
     function removeFromCart() {
-        
-        
-        fetch(`http://localhost:8000/api/orders/${furnitureId}`, {
+    
+        fetch(`http://localhost:8000/api/orders/${props.furnitureId}`, {
             method: 'Delete',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authStore.token}`}
         })
@@ -47,7 +46,7 @@
                 throw data.error;
             }
         })
-        .then(cartStore.removeFromCart(furnitureId))
+        .then(cartStore.removeFromCart(props.furnitureId))
         .catch(error => {
             console.log(error);
         })

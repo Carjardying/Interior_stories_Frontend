@@ -20,7 +20,7 @@
                                 :name="order.name"
                                 :price="order.price" 
                                 :image="order.image"
-                                @item-added="loadOrders" />
+                                @item-removed="loadOrders" />
                         </div>
                     </div>
                     <div class="w-full lg:flex-1 flex justify-start lg:justify-end">
@@ -94,23 +94,17 @@
             console.log(data)
             orderList.value = data;
             let amount = 0;
-            
-    
         })
         .catch(error => {
             console.log(error);
         });
-
     }
 
     onMounted(() => {
       loadOrders();
     })
 
-
     function cartAmount(data) {
-    
-
     }
 
 </script>
