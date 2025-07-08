@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-start gap-6">
-        <img :src="props.image" :alt="name" class="w-32 h-32 object-cover" />
+        <img :src="props.image" :alt="props.alt" class="w-32 h-32 object-cover" />
         <div class="flex-1">
             <h3 class="text-lg font-body text-dark-aubergine-800 mb-2">
                 {{ props.name }}
@@ -26,6 +26,7 @@
         name: String,
         price: Number,
         image: String,
+        alt: String,
     })
 
     const emit = defineEmits(['item-removed'])

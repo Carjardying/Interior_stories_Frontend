@@ -11,7 +11,8 @@
           :id="furniture.id" 
           :name="furniture.name"
           :price="parseInt(furniture.price).toFixed(2)" 
-          :image="furniture.image" 
+          :image="furniture.image"
+          :alt="furniture.alt"
           @item-added="reloadFurnitures" />
       </div>
     </div>

@@ -20,6 +20,7 @@
                                 :name="order.name"
                                 :price="order.price" 
                                 :image="order.image"
+                                :alt="order.alt"
                                 @item-removed="loadOrders" />
                         </div>
                     </div>
