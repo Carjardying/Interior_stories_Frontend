@@ -3,14 +3,14 @@
   <div class="h-screen flex flex-col lg:flex-row overflow-hidden">
 
     <!-- Khaki branding section: Functions as header on mobile/tablet (64px/80px height), expands to half-width on desktop -->
-    <div
+    <header
       class="w-full h-16 sm:h-20 lg:flex-1 lg:h-full bg-khaki-900 flex flex-col justify-between text-light-beige-100 relative">
 
       <!-- Container: Responsive padding that increases with screen size, centers content vertically on small screens -->
       <div class="p-4 sm:p-6 lg:p-6 xl:p-8 flex flex-col justify-center lg:justify-between h-full lg:h-full">
 
         <!-- Navigation header: Horizontal flex layout with back arrow and logo, aligned left with responsive spacing -->
-        <div class="flex items-center space-x-3 sm:space-x-4 lg:space-x-4 xl:space-x-6 lg:mb-4">
+        <nav class="flex items-center space-x-3 sm:space-x-4 lg:space-x-4 xl:space-x-6 lg:mb-4">
 
           <!-- Back arrow button: Router link with hover effects, icon size scales responsively from 24px to 32px -->
           <RouterLink to="/home">
@@ -22,7 +22,7 @@
           <!-- Brand logo: Smaller on mobile/tablet for header proportions (48px-56px), larger on desktop (80px-112px) -->
           <img src="../assets/images/logos/logo_light.png" alt="Brand logo light version"
             class="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 object-contain" />
-        </div>
+        </nav>
 
         <!-- Main branding text: Hidden on mobile/tablet to save space, visible only on desktop with responsive typography -->
         <div class="hidden lg:flex flex-1 items-center py-2 xl:py-4">
@@ -43,19 +43,19 @@
         </div>
 
         <!-- Footer copyright: Hidden on mobile/tablet, visible only on desktop with minimal spacing -->
-        <div class="hidden lg:block mt-2 xl:mt-4">
+        <footer class="hidden lg:block mt-2 xl:mt-4">
 
           <!-- Copyright text: Small responsive typography (12px-24px) in medium beige color -->
           <p
             class="text-xs sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-lg font-heading text-medium-beige-300">
             © Copyright 2025 Interior Stories
           </p>
-        </div>
+        </footer>
       </div>
-    </div>
+    </header>
 
     <!-- Form section: Takes remaining space on mobile/tablet, half-width on desktop, centers form content -->
-    <div class="flex-1 lg:flex-1 bg-medium-beige-300 flex flex-col items-center justify-center h-full overflow-hidden">
+    <main class="flex-1 lg:flex-1 bg-medium-beige-300 flex flex-col items-center justify-center h-full overflow-hidden">
 
       <!-- Form wrapper: Responsive width constraints and padding, progressively wider on larger screens -->
       <div
@@ -123,7 +123,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 

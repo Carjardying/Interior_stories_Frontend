@@ -7,13 +7,13 @@
     </div>
 
     <!-- Header Icons -->
-    <div class="flex items-center space-x-6">
+    <nav class="flex items-center space-x-6">
       <!-- User Account Icon -->
       <AccountButton></AccountButton>
 
       <!-- Shopping Cart Icon -->
       <CartButton></CartButton>
-    </div>
+    </nav>
   </header>
 </template>
 
