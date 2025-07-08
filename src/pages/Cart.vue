@@ -14,8 +14,14 @@
                             PRODUCTS
                         </h2>
                         <div class="space-y-6 sm:space-y-8">
-                            <CartItem v-for="order in orderList" :furnitureId="order.id" :name="order.name"
-                                :price="order.price" :image="order.image" @item-removed="loadOrders" />
+                            <CartItem 
+                                v-for="order in orderList" 
+                                :furnitureId ="order.id" 
+                                :name="order.name"
+                                :price="parseInt(order.price).toFixed(2)" 
+                                :image="order.image"
+                                :alt="order.alt"
+                                @item-removed="loadOrders" />
                         </div>
                     </div>
                     <div class="w-full lg:flex-1 flex justify-start lg:justify-end">
@@ -26,7 +32,7 @@
                                         Order Value
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 6500,00
+                                        EUR {{ amountFurnitures.toFixed(2) }}
                                     </span>
                                 </div>
                                 <div class="flex justify-between items-center mb-3 sm:mb-4">
@@ -34,7 +40,7 @@
                                         Delivery
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 80,00
+                                        EUR {{ deliveryFees.toFixed(2) }}
                                     </span>
                                 </div>
                                 <hr class="h-px my-3 sm:my-4 bg-dark-beige-400 border-0">
@@ -43,7 +49,7 @@
                                         TOTAL
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 6580,00
+                                        EUR {{ amountTotal.toFixed(2) }}
                                     </span>
                                 </div>
                             </div>
@@ -99,19 +105,31 @@ const orderList = ref([]);
 const authStore = useAuthStore();
 let open = ref(false);
 
-function loadOrders() {
-    fetch("http://localhost:8000/api/orders", {
-        method: 'GET',
-        headers: { Authorization: `Bearer ${authStore.token}` }
+let amountFurnitures = ref(0);
+let amountTotal = ref(0);
+let deliveryFees = 80;
+
+function loadOrders(){
+  fetch("http://localhost:8000/api/orders", {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${authStore.token}` }
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            orderList.value = data;
-        })
-        .catch(error => {
-            console.log(error);
-        });
+  .then(response => response.json())
+  .then(data => {
+    orderList.value = data;
+
+    amountFurnitures.value = 0;
+    amountTotal = 0;
+
+    orderList.value.forEach((elem) => {
+    amountFurnitures.value += Number(elem.price)
+    })
+
+    amountTotal = amountFurnitures.value + deliveryFees;
+  })
+  .catch(error => {
+    console.log(error);
+  });
 }
 
 onMounted(() => {
@@ -127,13 +145,10 @@ function checkout() {
             loadOrders()
             open.value = true
         })
-
 }
 
 function closeModal() {
     open.value = false
     router.push('/home');
 }
-
-
 </script>
