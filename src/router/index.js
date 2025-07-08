@@ -15,7 +15,7 @@ const routes = [
   { path: '/admin', component: Admin },
   { path: '/account', component: Account },
   { path: '/cart', component: Cart },
-  { path: '/Catalogue', component: Catalogue },
+  { path: '/catalogue', component: Catalogue },
   { path: '/register', component: Register },
   { path: '/furniture-details', component: FurnitureDetails },
 ];

@@ -1,6 +1,6 @@
 <!-- components/FurnitureCard.vue -->
 <template>
-  <form @submit.prevent="addToCart" class="col-span-1 m-8">
+  <form @submit.prevent="" class="col-span-1 m-8">
     <div class="h-150 overflow-hidden">
       <img :src="image" :alt="name" class="w-full h-full object-cover" />
     </div>
