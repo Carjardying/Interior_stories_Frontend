@@ -10,8 +10,9 @@
           v-for="furniture in furnitureList" 
           :id="furniture.id" 
           :name="furniture.name"
-          :price="furniture.price" 
-          :image="furniture.image" 
+          :price="parseInt(furniture.price).toFixed(2)" 
+          :image="furniture.image"
+          :alt="furniture.alt"
           @item-added="reloadFurnitures" />
       </div>
     </div>

@@ -18,8 +18,9 @@
                                 v-for="order in orderList" 
                                 :furnitureId ="order.id" 
                                 :name="order.name"
-                                :price="order.price" 
+                                :price="parseInt(order.price).toFixed(2)" 
                                 :image="order.image"
+                                :alt="order.alt"
                                 @item-removed="loadOrders" />
                         </div>
                     </div>
@@ -31,7 +32,7 @@
                                         Order Value
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 6500,00
+                                        EUR {{ amountFurnitures.toFixed(2) }}
                                     </span>
                                 </div>
                                 <div class="flex justify-between items-center mb-3 sm:mb-4">
@@ -39,7 +40,7 @@
                                         Delivery
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 80,00
+                                        EUR {{ deliveryFees.toFixed(2) }}
                                     </span>
                                 </div>
                                 <hr class="h-px my-3 sm:my-4 bg-dark-beige-400 border-0">
@@ -48,7 +49,7 @@
                                         TOTAL
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
-                                        EUR 6580,00
+                                        EUR {{ amountTotal.toFixed(2) }}
                                     </span>
                                 </div>
                             </div>
@@ -84,6 +85,10 @@
     const orderList = ref([]);
     const authStore = useAuthStore();
 
+    let amountFurnitures = ref(0);
+    let amountTotal = ref(0);
+    let deliveryFees = 80;
+
     function loadOrders(){
         fetch("http://localhost:8000/api/orders", {
             method: 'GET',
@@ -91,9 +96,16 @@
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             orderList.value = data;
-            let amount = 0;
+
+            amountFurnitures.value = 0;
+            amountTotal = 0;
+
+            orderList.value.forEach((elem) => {
+                amountFurnitures.value += Number(elem.price)
+            })
+
+            amountTotal = amountFurnitures.value + deliveryFees;
         })
         .catch(error => {
             console.log(error);
@@ -103,8 +115,5 @@
     onMounted(() => {
       loadOrders();
     })
-
-    function cartAmount(data) {
-    }
 
 </script>
