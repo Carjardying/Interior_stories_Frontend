@@ -24,7 +24,7 @@
     const props = defineProps({
         furnitureId: [String, Number],
         name: String,
-        price: String,
+        price: Number,
         image: String,
     })
 
