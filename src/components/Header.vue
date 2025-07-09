@@ -68,9 +68,12 @@ const isHomePage = computed(() => {
 
 // Pages that should show the standard header (catalogue/cart style)
 const standardHeaderPages = ['/catalogue', '/cart'];
+const dynamicRoutes = [/^\/furniture-details\/\d+$/];
 
 // Computed property to determine if we should show any header at all
 const shouldShowHeader = computed(() => {
-  return isHomePage.value || standardHeaderPages.includes(route.path);
+  return isHomePage.value ||
+    standardHeaderPages.includes(route.path) ||
+    dynamicRoutes.some(pattern => pattern.test(route.path));
 });
 </script>

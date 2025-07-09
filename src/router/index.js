@@ -11,13 +11,13 @@ import FurnitureDetails from '../pages/FurnitureDetails.vue';
 const routes = [
   { path: '/', redirect: '/home' },
   { path: '/login', component: LogIn },
-  { path: '/home', component: Home, },
+  { path: '/home', component: Home },
   { path: '/admin', component: Admin },
   { path: '/account', component: Account },
   { path: '/cart', component: Cart },
   { path: '/catalogue', component: Catalogue },
   { path: '/register', component: Register },
-  { path: '/furniture-details', component: FurnitureDetails },
+  { path: '/furniture-details/:id', name: "furniture-details", component: FurnitureDetails, props: true },
 ];
 
 const router = createRouter({
