@@ -1,15 +1,15 @@
 <template>
   <!-- Account Button -->
   <button @click="open = true" class="cursor-pointer">
-    <img src="/src/assets/images/icons/account_light_account.png" alt="Account icon light version" class="w-8 h-8" />
+    <img src="/src/assets/images/icons/account_light_account.png" alt="Account icon to log in or log out" class="w-8 h-8" />
   </button>
 
   <!-- Full Screen Backdrop + Modal -->
-  <div v-if="open" @click.self="closeModal"
+  <menu v-if="open" @click.self="closeModal"
     class="fixed inset-0 w-screen h-screen bg-dark-aubergine-800/50 backdrop flex items-center justify-center z-50 min-h-screen min-w-full">
 
     <!-- Modal box positioned at top-right on all screen sizes -->
-    <div ref="modal" class="absolute z-[999] top-[13%] right-[6%] flex flex-col items-center space-y-4">
+    <nav ref="modal" class="absolute z-[999] top-[13%] right-[6%] flex flex-col items-center space-y-4">
 
       <!-- Authenticated user - Logout option -->
       <div v-if="auth.isAuthenticated">
@@ -26,8 +26,8 @@
           Log in
         </RouterLink>
       </div>
-    </div>
-  </div>
+    </nav>
+  </menu>
 </template>
 
 <script setup>

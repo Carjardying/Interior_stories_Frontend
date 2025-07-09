@@ -28,13 +28,13 @@
                         </h2>
 
                         <!-- Product List: Responsive spacing between items -->
-                        <div class="space-y-6 sm:space-y-8">
+                        <article class="space-y-6 sm:space-y-8">
                             <!-- Product 1: CartItem component for first product -->
                             <CartItem :product="cartItems[0]" />
 
                             <!-- Product 2: CartItem component for second product -->
                             <CartItem :product="cartItems[1]" />
-                        </div>
+                        </article>
                     </div>
 
                     <!-- Right side: Order summary section with responsive positioning -->
@@ -46,37 +46,37 @@
                             <div class="outline-solid outline-1 outline-dark-beige-400 p-4 sm:p-6 mb-4 sm:mb-6">
 
                                 <!-- Order Value row: Flex layout with responsive text sizing -->
-                                <div class="flex justify-between items-center mb-3 sm:mb-4">
+                                <article class="flex justify-between items-center mb-3 sm:mb-4">
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         Order Value
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         EUR 6500,00
                                     </span>
-                                </div>
+                                </article>
 
                                 <!-- Delivery row: Flex layout with responsive text sizing -->
-                                <div class="flex justify-between items-center mb-3 sm:mb-4">
+                                <article class="flex justify-between items-center mb-3 sm:mb-4">
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         Delivery
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         EUR 80,00
                                     </span>
-                                </div>
+                                </article>
 
                                 <!-- Divider: Horizontal rule with responsive margins -->
                                 <hr class="h-px my-3 sm:my-4 bg-dark-beige-400 border-0">
 
                                 <!-- Total row: Final calculation with responsive text sizing -->
-                                <div class="flex justify-between items-center">
+                                <article class="flex justify-between items-center">
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         TOTAL
                                     </span>
                                     <span class="text-base sm:text-lg md:text-xl font-body text-dark-aubergine-800">
                                         EUR 6580,00
                                     </span>
-                                </div>
+                                </article>
                             </div>
 
                             <!-- Checkout Button: Full width with responsive padding and text -->
@@ -86,16 +86,16 @@
                             </button>
 
                             <!-- Continue Shopping Link: Responsive text with icon -->
-                            <div class="text-left sm:text-justify">
+                            <nav class="text-left sm:text-justify">
                                 <router-link to="/catalogue"
                                     class="text-sm sm:text-base md:text-lg font-body text-dark-aubergine-800 underline underline-offset-2 sm:underline-offset-3 inline-flex items-center gap-2 hover:text-dark-brown-800 transition-colors duration-200">
                                     Continue shopping
                                     <!-- Arrow icon: Responsive sizing -->
                                     <img src="../assets/images/icons/arrow_dark_icon.png"
-                                        alt="Arrow dark version redirecting to catalogue"
+                                        alt="redirecting to catalogue"
                                         class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                                 </router-link>
-                            </div>
+                            </nav>
                         </div>
                     </div>
                 </div>
