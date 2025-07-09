@@ -5,7 +5,7 @@
       <Header></Header>
 
       <!-- Main Content Area -->
-      <div class="flex-1 bg-dark-aubergine-800 relative overflow-hidden">
+      <main class="flex-1 bg-dark-aubergine-800 relative overflow-hidden">
         <!-- Hero Image -->
         <img src="/src/assets/images/interior/homepage_picture.PNG" alt="Living room with modern interior"
           class="absolute inset-0 w-full h-full object-cover" />
@@ -38,7 +38,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </div>
 
     <!-- Footer (appears on scroll on all devices) -->

@@ -24,7 +24,7 @@
                                 @item-removed="loadOrders" />
                         </div>
                     </div>
-                    <div class="w-full lg:flex-1 flex justify-start lg:justify-end">
+                    <aside class="w-full lg:flex-1 flex justify-start lg:justify-end">
                         <div class="w-full sm:max-w-md lg:w-80 xl:w-96 2xl:w-[28rem]">
                             <div class="outline-solid outline-1 outline-dark-beige-400 p-4 sm:p-6 mb-4 sm:mb-6">
                                 <div class="flex justify-between items-center mb-3 sm:mb-4">
@@ -85,7 +85,7 @@
                                 </router-link>
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </main>
         </div>

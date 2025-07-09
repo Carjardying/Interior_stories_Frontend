@@ -3,7 +3,7 @@
   <div class="h-screen flex flex-col lg:flex-row overflow-hidden">
 
     <!-- Khaki branding section: Functions as header on mobile/tablet (64px/80px height), expands to half-width on desktop -->
-    <div
+    <aside
       class="w-full h-16 sm:h-20 lg:flex-1 lg:h-full bg-khaki-900 flex flex-col justify-between text-light-beige-100 relative">
 
       <!-- Container: Responsive padding that increases with screen size, centers content vertically on small screens -->
@@ -52,10 +52,10 @@
           </p>
         </div>
       </div>
-    </div>
+    </aside>
 
     <!-- Form section: Takes remaining space on mobile/tablet, half-width on desktop, centers form content -->
-    <div class="flex-1 lg:flex-1 bg-medium-beige-300 flex flex-col items-center justify-center h-full overflow-hidden">
+    <main class="flex-1 lg:flex-1 bg-medium-beige-300 flex flex-col items-center justify-center h-full overflow-hidden">
 
       <!-- Form wrapper: Responsive width constraints and padding, progressively wider on larger screens -->
       <div
@@ -110,20 +110,8 @@
             Sign in
           </button>
         </form>
-
-        <!-- Sign up link section: Centered below form with responsive spacing -->
-        <div class="text-center mt-6 sm:mt-8 lg:mt-4 xl:mt-6 2xl:mt-8">
-
-          <!-- Sign up link: Router link with underline, hover effects, responsive typography (12px-24px) -->
-          <p
-            class="text-xs sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-lg font-body text-dark-aubergine-800 underline underline-offset-2 sm:underline-offset-3">
-            <RouterLink to="/register" class="hover:text-dark-brown-800 hover:no-underline transition-all duration-200">
-              Don't have an account yet? Sign Up!
-            </RouterLink>
-          </p>
-        </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
