@@ -9,7 +9,7 @@
                 EUR {{ props.price }}
             </p>
         </div>
-        <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body text-medium-beige-300" @click="removeFromCart">
+        <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body cursor-pointer text-medium-beige-300" @click="removeFromCart">
             Remove
         </button>
     </div>

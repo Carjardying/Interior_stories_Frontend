@@ -63,10 +63,10 @@
                                 class="fixed inset-0 w-screen h-screen bg-medium-beige-300/50 backdrop flex items-center justify-center z-50 min-h-screen min-w-full">
                                 <!-- Modal box -->
                                 <div ref="modal"
-                                    class="modal w-4xl size-90 p-20 place-content-evenly bg-light-beige-100 shadow-lg flex flex-col items-center space-y-4"
+                                    class="modal w-4xl size-90 p-20 place-content-evenly bg-off-white-50 shadow-lg flex flex-col items-center space-y-4"
                                     role="dialog" aria-modal="true" aria-labelledby="modal-title"
                                     aria-describedby="modal-description"> 
-                                    <span class="text-3xl">Your order has been placed !</span>
+                                    <span class="font-heading text-dark-aubergine-800 text-4xl">Your order has been placed!</span>
                                     
                                     <RouterLink to="/home" @click="closeModal"
                                             class="bg-dark-brown-800 text-medium-beige-300 px-4 py-2 font-body hover:bg-dark-aubergine-800 transition-colors duration-200">
