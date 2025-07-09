@@ -1,6 +1,5 @@
 <template>
-  <Header></Header>
-
+    <Header></Header>
   <div>
     <div class="text-left pt-2 pb-1 sm:pt-3 sm:pb-2 pl-4 sm:pl-8">
       <router-link to="/catalogue" class="flex flex-row items-center gap-1 sm:gap-2">
@@ -26,7 +25,7 @@
         <p class="font-body text-sm sm:text-base md:text-lg p-0.5">
           EUR {{ furniture[0].price }}
         </p>
-        <AddToCartButton :furnitureId="furniture[0].id" @item-added="$emit('item-added')" class="my-1 sm:my-2" />
+        <AddToCartButton :furnitureId="furniture[0].id" @item-added="handleItemAdded" class="my-1 sm:my-2" />
 
         <hr
           class="h-px mt-6 mb-2 sm:mt-8 sm:mb-3 bg-dark-beige-400 border-0 border-t border-solid border-dark-beige-400">
@@ -59,29 +58,32 @@
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import AddToCartButton from '../components/AddToCartButton.vue';
-import { ref, onMounted, onBeforeMount } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from "vue-router";
+import router from '../router/index.js';
 
 const route = useRoute();
 const id = route.params.id;
-
 const furniture = ref([]);
+const emit = defineEmits(['item-added']);
 
 function getFurniture(id) {
-  fetch(`http://localhost:8000/api/furnitures/${id}`, {
-    method: 'GET',
-  })
-    .then(response => response.json())
-    .then(data => {
-      furniture.value = data;
-      console.log(furniture)
+    fetch(`http://localhost:8000/api/furnitures/${id}`, {
+        method: 'GET',
     })
-    .catch(error => {
-      console.log(error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            furniture.value = data;
+            console.log(furniture)
+        })
+        .catch(error => {
+            console.log(error);
+        });
 }
 getFurniture(id);
 
-onMounted(() => {
-})
+function handleItemAdded() {
+    emit('item-added');
+    router.push('/catalogue');
+}
 </script>

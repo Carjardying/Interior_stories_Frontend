@@ -13,10 +13,10 @@
             role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
             <span class="text-3xl">Please log in to start shopping !</span>
 
-            <RouterLink to="/login" @click="closeModal"
+            <button to="/login" @click="closeModal"
                 class="bg-dark-brown-800 text-medium-beige-300 px-4 py-2 font-body hover:bg-dark-aubergine-800 transition-colors duration-200">
                 Click here to log in
-            </RouterLink>  
+            </button>  
         </div>
     </div>
 
@@ -26,7 +26,8 @@
 import { useCartStore } from '../stores/cart';
 import { useAuthStore } from '../stores/auth';
 import { defineEmits, defineProps } from 'vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+import router from '../router/index.js';
 
 const props = defineProps({ 
     furnitureId: {
