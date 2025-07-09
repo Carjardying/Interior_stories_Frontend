@@ -2,14 +2,13 @@
     <Header></Header>
     
     <DetailsItem        
-          :name="furniture.name"
+          :name="furniture.value.name"
           :price="parseInt(furniture.price).toFixed(2)" 
           :image="furniture.image"
           :alt="furniture.alt"
           :measurements="furniture.measurements"
           :color="furniture.color"
-          :material="furniture.material"
-          @item-added="getFurniture"/>
+          :material="furniture.material"/>
     <Footer></Footer>
 </template>
 
@@ -18,10 +17,12 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import DetailsItem from "../components/DetailsItem.vue";
 import { ref, onMounted } from 'vue';
-import { useFurnitureStore } from "../stores/furniture";
+import { useRoute } from "vue-router";
 
-const furnitureDetails = ref([]);
-const furniture = useFurnitureStore();
+const route = useRoute();
+const id = route.params.id;
+// console.log(id)
+const furniture = ref([]);
 
 function getFurniture(id) {
   fetch(`http://localhost:8000/api/furnitures/${id}`, {
@@ -29,16 +30,15 @@ function getFurniture(id) {
   })
     .then(response => response.json())
     .then(data => {
-      furnitureDetails.value = data;
+      furniture.value = data;
     })
     .catch(error => {
       console.log(error);
     });
 }
 
-console.log()
-
 onMounted(() => {
-  getFurniture();
+  getFurniture(id);
+  console.log(furniture)
 })
 </script>
