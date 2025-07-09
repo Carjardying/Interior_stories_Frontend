@@ -1,7 +1,7 @@
 <!-- components/FurnitureCard.vue -->
 <template>
   <form @submit.prevent="" class="col-span-1 m-8">
-    <RouterLink :to="`/furniture-details/${props.id}`" @click="setId">
+    <RouterLink :to="`/furniture-details/${props.id}`">
       <div class="h-150 overflow-hidden">
         <img :src="props.image" :alt="props.alt" class="w-full h-full object-cover" />
       </div>
