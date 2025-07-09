@@ -1,12 +1,12 @@
 <!-- components/FurnitureCard.vue -->
 <template>
   <form @submit.prevent="" class="col-span-1 m-8">
-    <RouterLink to="/furniture-details">
+    <RouterLink :to="{name: '/furniture-details', params:{id: props.id}}" @click="setId">
       <div class="h-150 overflow-hidden">
-        <img :src="image" :alt="alt" class="w-full h-full object-cover" />
+        <img :src="props.image" :alt="props.alt" class="w-full h-full object-cover" />
       </div>
-      <h2 class="font-body text-dark-aubergine-800 p-1">{{ name }}</h2>
-      <p class="font-body text-dark-aubergine-800 p-1">EUR {{ price }}</p>
+      <h2 class="font-body text-dark-aubergine-800 p-1">{{ props.name }}</h2>
+      <p class="font-body text-dark-aubergine-800 p-1">EUR {{ props.price }}</p>
     </RouterLink>
 
     <AddToCartButton :furnitureId="id" @item-added="$emit('item-added')"/>
@@ -15,8 +15,15 @@
 
 <script setup>
 import AddToCartButton from './AddToCartButton.vue';
+import { useFurnitureStore } from '../stores/furniture';
 
-defineProps({
+const furniture = useFurnitureStore();
+
+function setId() {
+  furniture.setFurnitureId(props.id)
+}
+
+const props = defineProps({
   id: [String, Number],
   name: String,
   price: Number,

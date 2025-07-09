@@ -17,7 +17,7 @@ const routes = [
   { path: '/cart', component: Cart },
   { path: '/catalogue', component: Catalogue },
   { path: '/register', component: Register },
-  { path: '/furniture-details/:id', component: FurnitureDetails },
+  { path: '/furniture-details/:id', name: "furniture-details", component: FurnitureDetails, props: true },
 ];
 
 const router = createRouter({

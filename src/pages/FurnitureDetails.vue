@@ -1,8 +1,7 @@
 <template>
     <Header></Header>
     
-    <DetailsItem
-        v-for="furniture in furnitureDetails" 
+    <DetailsItem        
           :name="furniture.name"
           :price="parseInt(furniture.price).toFixed(2)" 
           :image="furniture.image"
@@ -11,7 +10,6 @@
           :color="furniture.color"
           :material="furniture.material"
           @item-added="getFurniture"/>
-
     <Footer></Footer>
 </template>
 
@@ -20,11 +18,13 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import DetailsItem from "../components/DetailsItem.vue";
 import { ref, onMounted } from 'vue';
+import { useFurnitureStore } from "../stores/furniture";
 
 const furnitureDetails = ref([]);
+const furniture = useFurnitureStore();
 
-function getFurniture($id) {
-  fetch(`http://localhost:8000/api/furnitures/${$id}`, {
+function getFurniture(id) {
+  fetch(`http://localhost:8000/api/furnitures/${id}`, {
     method: 'GET',
   })
     .then(response => response.json())
@@ -35,6 +35,8 @@ function getFurniture($id) {
       console.log(error);
     });
 }
+
+console.log()
 
 onMounted(() => {
   getFurniture();

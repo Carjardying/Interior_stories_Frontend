@@ -8,15 +8,15 @@
 
         <div class="flex-column">
             <h1 class="font-heading text-dark-aubergine-800 p-1">{{ name }}</h1>
+            <p class="font-body text-dark-aubergine-800 p-1">EUR {{ price }}</p>
+            <AddToCartButton :furnitureId="id" @item-added="$emit('item-added')" />
             <p class="font-body text-dark-aubergine-800">Description</p>
             <p class="font-body text-dark-aubergine-800">{{ description }}</p>
             <p class="font-body text-dark-aubergine-800">Details</p>
             <p class="font-body text-dark-aubergine-800">Measurements: {{ measurements }}</p>
             <p class="font-body text-dark-aubergine-800">Color: {{ color }}</p>
             <p class="font-body text-dark-aubergine-800">Material: {{ material }}</p>
-            <p class="font-body text-dark-aubergine-800 p-1">EUR {{ price }}</p>
 
-            <AddToCartButton :furnitureId="id" @item-added="$emit('item-added')" />
         </div>
     </div>
 
