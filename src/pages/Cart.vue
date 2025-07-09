@@ -129,7 +129,7 @@ function loadOrders(){
   })
   .catch(error => {
     console.log(error);
-  });
+  }); 
 }
 
 onMounted(() => {
