@@ -6,7 +6,7 @@
                 {{ props.name }}
             </h3>
             <p class="text-sm font-body text-dark-brown-800">
-                EUR {{ props.price }}
+                EUR {{ props.price.toFixed(2) }}
             </p>
         </div>
         <button class="bg-dark-aubergine-800 px-6 py-2 text-sm font-body cursor-pointer text-medium-beige-300" @click="removeFromCart">

@@ -1,10 +1,10 @@
 <template>
   <Header></Header>
 
-    <div class="flex-row m-8">
+    <div v-if="furniture[0]" class="flex-row m-8">
 
         <div class="h-150">
-            <img :src="furniture[0].image" :alt="alt" class="h-full object-cover" />
+            <img :src="furniture[0].image" :alt="furniture[0].alt" class="h-full object-cover" />
         </div>
 
         <div class="flex-column">
@@ -27,7 +27,7 @@
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import AddToCartButton from '../components/AddToCartButton.vue';
-import { ref, onMounted, onBeforeMount } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -51,6 +51,8 @@ function getFurniture(id) {
 getFurniture(id);
 
 
-onMounted(() => {
-})
+// Avoiding warning about 
+// defineProps({
+//   id: String
+// })
 </script>
