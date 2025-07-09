@@ -6,7 +6,7 @@
         <img :src="props.image" :alt="props.alt" class="w-full h-full object-cover" />
       </div>
       <h2 class="font-body text-dark-aubergine-800 p-1">{{ props.name }}</h2>
-      <p class="font-body text-dark-aubergine-800 p-1">EUR {{ props.price }}</p>
+      <p class="font-body text-dark-aubergine-800 p-1">EUR {{ props.price.toFixed(2) }}</p>
     </RouterLink>
 
     <AddToCartButton :furnitureId="props.id" @item-added="$emit('item-added')"/>

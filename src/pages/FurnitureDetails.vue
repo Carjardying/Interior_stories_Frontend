@@ -1,19 +1,16 @@
 <template>
     <Header></Header>
 
-    <div class="flex-row m-8">
+    <div v-if="furniture[0]" class="flex-row m-8">
 
         <div class="h-150">
-            <img :src="furniture[0].image" :alt="alt" class="h-full object-cover" />
+            <img :src="furniture[0].image" :alt="furniture[0].alt" class="h-full object-cover" />
         </div>
 
         <div class="flex-column">
             <h1 class="font-heading text-dark-aubergine-800 p-1">{{ furniture[0].name }}</h1>
             <p class="font-body text-dark-aubergine-800 p-1">EUR {{ furniture[0].price }}</p>
             <AddToCartButton :furnitureId="furniture[0].id" @item-added="handleItemAdded">
-                
-
-              
             </AddToCartButton>
 
             <p class="font-body text-dark-aubergine-800">Description</p>
@@ -32,7 +29,7 @@
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import AddToCartButton from '../components/AddToCartButton.vue';
-import { ref, onMounted, onBeforeMount } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from "vue-router";
 import router from '../router/index.js';
 
@@ -56,15 +53,8 @@ function getFurniture(id) {
 }
 getFurniture(id);
 
-
-onMounted(() => {
-})
-
 function handleItemAdded() {
- 
     emit('item-added');
     router.push('/catalogue');
 }
-
-
 </script>

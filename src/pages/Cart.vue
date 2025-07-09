@@ -18,7 +18,7 @@
                                 v-for="order in orderList" 
                                 :furnitureId ="order.id" 
                                 :name="order.name"
-                                :price="parseInt(order.price).toFixed(2)" 
+                                :price="parseInt(order.price)" 
                                 :image="order.image"
                                 :alt="order.alt"
                                 @item-removed="loadOrders" />
