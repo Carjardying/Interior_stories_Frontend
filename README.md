@@ -14,13 +14,16 @@ Période : 6eme mois de formation
 
 ## Fonctionnalités et compétences
 
-| Fonctionnalité                      | Compétence acquise                                                               |
-| ----------------------------------- | -------------------------------------------------------------------------------- |
-| **Création d'une API REST**         | Développement de routes, contrôleurs et logique de traitement                    |
-| **Connexion à une base de données** | Utilisation d’Eloquent ORM pour effectuer des requêtes SQL vers une base MySQL   |
-| **Gestion des requêtes HTTP**       | Mise en place de routes `GET`, `POST`, `DELETE` et `PUT` via Laravel             |
-| **Filtrage des données**            | Affichage conditionnel (ex: meubles disponibles uniquement)                      |
-| **Utilisation de middlewares**      | Protection des routes par authentification (Sanctum)                             |
-| **Formatage des réponses API**      | Structuration des retours en JSON pour consommation Frontend                     |
+| Fonctionnalité                        | Compétence acquise                                                                       |
+| ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Création de composants dynamiques** | Décomposition de l’interface en composants réutilisables (FurnitureItem, etc.)           |
+| **Utilisation de Pinia (store)**      | Centralisation de l’état global (panier, authentification, etc.)                         |
+| **Communication entre composants**    | Transmission de props, événements personnalisés (`emit`) pour faire circuler les données |
+| **Routage dynamique avec params**     | Mise en place d’une navigation avec paramètres (`/furniture-details/:id`)                |
+| **Gestion d’état réactif**            | Utilisation de `ref`, `reactive`, `onMounted` pour déclencher et suivre les changements  |
+| **Intégration d'une API REST**        | Récupération de données avec `fetch()` depuis l’API Laravel                              |
+| **Affichage conditionnel**            | Affichage dépendant de l’état utilisateur (authentifié ou non, panier rempli, etc.)      |
+| **Utilisation de TailwindCSS**        | Stylisation rapide et responsive de l’interface                                          |
+| **Modales et navigation UX**          | Ouverture d’une modale et affichage des détails en fonction d’un ID sélectionné          |
 
 Lien vers le [Backend](https://github.com/Carjardying/Interior_stories_Backend)
